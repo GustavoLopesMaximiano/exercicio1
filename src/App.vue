@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from 'vue'
 const nome = 'Gustavo'
 const idade = 16
 
@@ -9,7 +10,7 @@ function inverter(texto) {
 function saudacao() {
   return `Olá, ${nome}!`
 }
-import { ref } from 'vue'
+
 
 const contador = ref(0)
 
@@ -51,12 +52,11 @@ function resetar() {
     <button @click="decrementar" class="botao1">-</button>
     <button @click="resetar" class="botao1">reset</button>
     </div>
-    <div class="apareceu" v-if="contador > 10" style="background-color: green;">
-      <p>AChoooo maio q 10</p>
+    <div class="apareceu">
+        <p v-if="contador > 10" style="background-color: green;">Número maior que 10</p>
+        <p v-else-if="contador < 10" style="background-color: red;">Número menor que 10</p>
     </div>
-    <div class="apareceu" v-else-if="contador < 10" style="background-color: red;">
-      <p>Achoooo meno q 10</p>
-    </div>
+    
     </div>
   </main>
 </template>
